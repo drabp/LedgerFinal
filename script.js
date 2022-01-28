@@ -32,10 +32,10 @@ fetch(endpoint)
         })
     })
 
-const output = document.querySelector('.output');
+const table = document.querySelector('#d-table');
 const title = document.querySelector('.title');
 function getRecords() {
-    output.innerHTML = '';
+    table.innerHTML = '';
     var x = accountList.selectedIndex;
     var y = accountList.options;
     var value = y[x].value;
@@ -57,29 +57,41 @@ function getRecords() {
                     const div = document.createElement('div');
                     div.classList.add('rowDiv');
                     const temp1 = row.c;
+                    var trow = document.createElement("tr");
                     temp1.forEach((cell, index) => {
                         var value = "";
-                        if (cell.f !== undefined) { value = cell.f; }
+                        if (cell.f !== undefined) {
+                            console.log(cell.f);
+                            console.log(cell.f.length);
+                            var valueLegnth = cell.f.length;
+                            if (valueLegnth == 19) { value = cell.f.slice(0, -9); }
+                            else { value = cell.f; }
+                        }
                         else { value = cell.v; }
-                        const box = document.createElement('div');
-                        box.textContent += value;
-                        box.classList.add('box');
-                        if (index == 0) { box.setAttribute('style', 'display:none;') }
-                        if (index == 1) { box.setAttribute('style', 'width:150px;text-align:left;') }
-                        if (index == 2) { box.setAttribute('style', 'width:90px;text-align:left;') }
-                        if (index == 3) { box.setAttribute('style', 'width:300px;text-align:left;') }
-                        if (index == 4) { box.setAttribute('style', 'width:300px;text-align:left;') }
-                        if (index == 5) { box.setAttribute('style', 'width:80px;text-align:right;') }
-                        if (index == 6) { box.setAttribute('style', 'width:80px;text-align:right;') }
-                        if (index == 7) { box.setAttribute('style', 'width:100px;text-align: right;') }
-                        div.appendChild(box);
+                        // const box = document.createElement('div');
+                        // box.textContent += value;
+                        // box.classList.add('box');
 
+                        // div.appendChild(box);
+
+                        var tcol = document.createElement("td");
+                        if (index == 0) { tcol.setAttribute('style', 'display:none;') }
+                        if (index == 1) { tcol.setAttribute('style', 'text-align:left;') }
+                        if (index == 2) { tcol.setAttribute('style', 'text-align:left;') }
+                        if (index == 3) { tcol.setAttribute('style', 'text-align:left;') }
+                        if (index == 4) { tcol.setAttribute('style', 'text-align:left;') }
+                        if (index == 5) { tcol.setAttribute('style', 'text-align:right;') }
+                        if (index == 6) { tcol.setAttribute('style', 'text-align:right;') }
+                        if (index == 7) { tcol.setAttribute('style', 'text-align: right;') }
+                        tcol.innerText += value;
+                        trow.appendChild(tcol);
                     })
-                    output.appendChild(div);
+
+                    table.appendChild(trow);
 
                 });
             }
-            else{
+            else {
                 alert("No Recods Found !");
             }
         })
