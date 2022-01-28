@@ -5,3 +5,34 @@
 body{
  background-color: #ddd; 
 }
+.select{
+    text-align : center;
+}
+.acccountSelect {
+    width : 50vw;
+    font-size: 1em;
+    padding : 5px;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px;
+    /* margin-bottom: 20px; */
+    border-bottom: 1px solid black;
+}
+
+.rowDiv {
+    border-bottom: 1px solid black;
+    overflow: auto;
+}
+
+.box {
+    display: inline-block;
+    /* width: 140px; */
+    margin: 5px;
+
+
+}
