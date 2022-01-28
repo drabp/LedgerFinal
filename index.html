@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .select{
+            text-align : center;
+        }
+        .acccountSelect {
+            width : 50vw;
+            font-size: 1em;
+            padding : 5px;
+        }
+
+        .title {
+            width: 100%;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 10px;
+            /* margin-bottom: 20px; */
+            border-bottom: 1px solid black;
+        }
+
+        .rowDiv {
+            border-bottom: 1px solid black;
+            overflow: auto;
+        }
+
+        .box {
+            display: inline-block;
+            /* width: 140px; */
+            margin: 5px;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <h1>LEDGER</h1> -->
+    <div class="select">
+        <select class="acccountSelect " name="accountname" id="account" onchange="getRecords()">
+            <option> </option>
+        </select>
+    </div>
+    <div class="print">
+        <div class="title" id="name"></div>
+        <div class="output"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
